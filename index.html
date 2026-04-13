@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MARLON VINCENT GALANG | FULL STACK DEVELOPER</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (config only — no inline styles needed) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high":    "#2a2a2a",
+            "surface-container-low":     "#1b1b1b",
+            "surface-container-lowest":  "#0e0e0e",
+            "surface-container":         "#1f1f1f",
+            "surface":                   "#131313",
+            "on-surface":                "#e2e2e2",
+            "on-surface-variant":        "#c6c6c6",
+            "outline":                   "#919191",
+            "outline-variant":           "#474747",
+          },
+          fontFamily: {
+            headline: ["Space Grotesk", "sans-serif"],
+            body:     ["Inter", "sans-serif"],
+            label:    ["Space Grotesk", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0px",
+            lg:      "0px",
+            xl:      "0px",
+            full:    "0px",
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="nav-header">
+    <div class="nav-inner page-container">
+      <div class="nav-logo-wrap">
+        <img src="assets/favicon-32x32.png" alt="MVG Logo" class="nav-logo-img" />
+        <span class="nav-site-name">Marlon Vincent Galang</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#tools"    class="nav-link">Tools</a>
+        <a href="#contact"  class="nav-link">Contact</a>
+      </nav>
+      <button class="nav-menu-btn" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero-section page-container" id="landing">
+      <span class="hero-watermark material-symbols-outlined">architecture</span>
+      <div class="hero-content">
+        <h1 class="hero-name">Marlon<br />Vincent<br />Galang</h1>
+        <p class="hero-title">Full Stack Developer</p>
+        <p class="hero-bio">
+          An aspiring full stack developer with a passion for building
+          innovative and user-friendly web applications.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+        <div class="hero-cta-group">
+          <a href="assets/Marlon_Resume.pdf" class="btn-primary" download="Marlon_Resume.pdf">
+  Download my Resume
+</a>
+          <a href="#contact"  class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-container"><div class="section-divider"></div></div>
+
+    <!-- ============================================================
+         PROJECTS
+    ============================================================ -->
+    <section class="page-container section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <span class="section-count">10 Entries</span>
+      </div>
+
+      <!-- Hidden radio inputs — drive CSS-only panel switching -->
+      <input type="radio" name="project" id="proj0" class="proj-radio" checked />
+      <input type="radio" name="project" id="proj1" class="proj-radio" />
+      <input type="radio" name="project" id="proj2" class="proj-radio" />
+      <input type="radio" name="project" id="proj3" class="proj-radio" />
+      <input type="radio" name="project" id="proj4" class="proj-radio" />
+      <input type="radio" name="project" id="proj5" class="proj-radio" />
+      <input type="radio" name="project" id="proj6" class="proj-radio" />
+      <input type="radio" name="project" id="proj7" class="proj-radio" />
+      <input type="radio" name="project" id="proj8" class="proj-radio" />
+      <input type="radio" name="project" id="proj9" class="proj-radio" />
+
+      <div class="projects-grid">
+        <label for="proj0" class="project-thumb"><span>E-commerce API Documentation</span></label>
+        <label for="proj3" class="project-thumb"><span>E-commerce App</span></label>
+        <label for="proj1" class="project-thumb"><span>Course Booking API</span></label>
+        <label for="proj2" class="project-thumb"><span>Course Booking App</span></label>
+        <label for="proj4" class="project-thumb"><span>Airline Booking Mockup</span></label>
+        <label for="proj5" class="project-thumb"><span>Airline Booking Prototype</span></label>
+        <label for="proj6" class="project-thumb"><span>Short Courses Capstone</span></label>
+        <label for="proj7" class="project-thumb"><span>Short Courses Capstone</span></label>
+        <label for="proj8" class="project-thumb"><span>Short Courses Capstone</span></label>
+        <label for="proj9" class="project-thumb project-thumb--placeholder"><span>+ Future Project</span></label>
+      </div>
+
+      <div class="project-meta-wrapper">
+
+        <div class="project-meta" id="meta0">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">E-commerce API Documentation</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Dynamic E-Commerce Workflow Management. Features dynamic routes for order processing, real-time inventory updates, and secure user authentication. Supports automated order reporting and comprehensive product management. Backend API documented publicly using Postman.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta1">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Course Booking API Documentation</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of user details. Supports course creation, updates, archiving, activations, and student enrollment. Publicly documented using Postman.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta2">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Course Booking App</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">A MERN-stack course enrollment system featuring user registration, authentication, and profile management. Authenticated users can create, update, archive, and activate courses. The platform also allows users to browse available courses and enroll seamlessly.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta3">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">E-commerce App</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">MERN E-Commerce Platform featuring a dynamic product catalog with filtering and sorting, real-time search, seamless cart updates, secure checkout, and a comprehensive admin dashboard with real-time analytics and user management capabilities.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta4">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Airline Booking System Mockup</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Side Project: Conceptual design showcasing an intuitive UI for flight search, seat selection, and booking confirmation — focusing on user experience and workflow efficiency.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta5">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Airline Booking System Prototype</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Side Project: Interactive prototype simulating end-to-end airline booking functionalities, including flight search, reservation, payment processing, and real-time ticket management.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta6">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Short Courses Capstone</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta7">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Short Courses Capstone</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta8">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Short Courses Capstone</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-meta" id="meta9">
+          <div class="project-meta-panel">
+            <div>
+              <p class="meta-label">Project Name</p>
+              <h3 class="meta-title">Future Projects</h3>
+              <p class="meta-label">Description</p>
+              <p class="meta-desc">Look forward for more!</p>
+            </div>
+            <div class="meta-aside">
+              <p class="meta-label">Date of Deployment</p>
+              <p class="meta-value">TBA</p>
+              <p class="meta-label">URL</p>
+              <p class="meta-url">TBA</p>
+              <button class="btn-disabled" disabled>Visit Website</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="page-container"><div class="section-divider"></div></div>
+
+    <!-- ============================================================
+         TOOLS
+    ============================================================ -->
+    <section class="page-container section" id="tools">
+      <div class="section-header">
+        <h2 class="section-title">Tools</h2>
+      </div>
+
+      <div class="tools-grid">
+
+        <div>
+          <p class="tools-category-title">Front End</p>
+          <div class="tools-list">
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/html.png" alt="HTML" /></div>
+              <span class="tool-name">HTML</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/css.png" alt="CSS" /></div>
+              <span class="tool-name">CSS</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/bootstrap.png" alt="Bootstrap" /></div>
+              <span class="tool-name">Bootstrap</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/javascript.webp" alt="JavaScript" /></div>
+              <span class="tool-name">JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="tools-category-title">MERN Stack</p>
+          <div class="tools-list">
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/mongodb.png" alt="MongoDB" /></div>
+              <span class="tool-name">MongoDB</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/expressjs.png" alt="Express" /></div>
+              <span class="tool-name">Express</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/react.png" alt="React" /></div>
+              <span class="tool-name">React</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/nodejs.png" alt="Node.js" /></div>
+              <span class="tool-name">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="tools-category-title">Other Tools</p>
+          <div class="tools-list">
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/git.png" alt="Git" /></div>
+              <span class="tool-name">Git</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/github.png" alt="GitHub" /></div>
+              <span class="tool-name">GitHub</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/postman.webp" alt="Postman" /></div>
+              <span class="tool-name">Postman</span>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon"><img src="assets/vscode.png" alt="VS Code" /></div>
+              <span class="tool-name">VS Code</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="page-container"><div class="section-divider"></div></div>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="page-container section" id="contact">
+      <div class="contact-grid">
+
+        <!-- Left: CTA + Socials -->
+        <div>
+          <h2 class="contact-heading">Want to<br />Get in<br />Touch?</h2>
+          <p class="contact-tagline">Feel free to message me on any of my socials.</p>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/marlon.vincent.5" class="social-link">
+                <span>Facebook</span>
+                <span class="material-symbols-outlined">north_east</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/3b5981352/" class="social-link">
+                <span>LinkedIn</span>
+                <span class="material-symbols-outlined">north_east</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.com/users/296123775970181131" class="social-link">
+                <span>Discord</span>
+                <span class="material-symbols-outlined">north_east</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/WatamelonP" class="social-link">
+                <span>GitHub</span>
+                <span class="material-symbols-outlined">north_east</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <h3 class="form-section-title">Send a Message</h3>
+          <form>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="contactName">Name</label>
+                <input class="form-input" type="text" id="contactName" placeholder="Name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactSurname">Surname</label>
+                <input class="form-input" type="text" id="contactSurname" placeholder="Surname" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactEmail">Email</label>
+              <input class="form-input" type="email" id="contactEmail" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Message</label>
+              <textarea class="form-textarea" id="contactMessage" rows="4" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner page-container">
+      <div>
+        <p class="footer-name">Marlon Vincent Galang</p>
+        <p class="footer-role">Full Stack Developer</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/WatamelonP"       class="footer-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/3b5981352/" class="footer-link">LinkedIn</a>
+        <a href="assets/Marlon_Resume_1.pdf"           class="footer-link">Resume</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 &middot; All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
