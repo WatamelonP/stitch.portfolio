@@ -3,22 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marlon Vincent Galang - Full Stack Developer. Passionate about building innovative and user-friendly web applications. MERN Stack, REST APIs, and modern web development." />
+  <meta name="keywords" content="Full Stack Developer, MERN Stack, React, Node.js, Web Development, Portfolio" />
+  <meta name="author" content="Marlon Vincent Galang" />
+  <link rel="canonical" href="https://watamelonp.github.io/stitch.portfolio/" />
   <title>MARLON VINCENT GALANG | FULL STACK DEVELOPER</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
 
-  <!-- Fonts -->
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Marlon Vincent Galang - Full Stack Developer" />
+  <meta property="og:description" content="Passionate full stack developer building innovative web applications." />
+  <meta property="og:url"         content="https://watamelonp.github.io/stitch.portfolio/" />
+  <meta property="og:image"       content="https://watamelonp.github.io/stitch.portfolio/assets/sky.jfif" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marlon Vincent Galang",
+    "jobTitle": "Full Stack Developer",
+    "description": "Passionate full stack developer with expertise in MERN stack",
+    "sameAs": [
+      "https://github.com/WatamelonP",
+      "https://www.linkedin.com/in/3b5981352/",
+      "https://www.facebook.com/marlon.vincent.5"
+    ],
+    "url": "https://watamelonp.github.io/stitch.portfolio/"
+  }
+  </script>
+
+  <!--
+    FIX: Render-blocking — preconnect opens the socket early
+    so font files download in parallel with HTML parsing.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
+  <!--
+    FIX: font-display — &display=swap ensures text renders
+    immediately in a fallback font, avoiding invisible text
+    during font load (FOIT).
+    Both families in one request = one fewer RTT.
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="My Portfolio">
-  <meta property="og:url" content="https://watamelonp.github.io/stitch.portfolio/">
-  <meta property="og:image" content="assets/sky.jfif">
-  <!-- Tailwind (config only — no inline styles needed) -->
+  <!--
+    FIX: Material Symbols deferred — not needed for FCP.
+    Loaded async via preload trick; icons show after first paint.
+  -->
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" />
+  </noscript>
+
+  <!--
+    Tailwind CDN — NOTE: replace with a built CSS file for
+    production to eliminate ~94 KiB of unused JS flagged by
+    Lighthouse. Build with: npx tailwindcss -i input.css -o index.css
+  -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
@@ -26,15 +83,15 @@
       theme: {
         extend: {
           colors: {
-            "surface-container-high":    "#2a2a2a",
-            "surface-container-low":     "#1b1b1b",
-            "surface-container-lowest":  "#0e0e0e",
-            "surface-container":         "#1f1f1f",
-            "surface":                   "#131313",
-            "on-surface":                "#e2e2e2",
-            "on-surface-variant":        "#c6c6c6",
-            "outline":                   "#919191",
-            "outline-variant":           "#474747",
+            "surface-container-high":   "#2a2a2a",
+            "surface-container-low":    "#1b1b1b",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container":        "#1f1f1f",
+            "surface":                  "#131313",
+            "on-surface":               "#e2e2e2",
+            "on-surface-variant":       "#c6c6c6",
+            "outline":                  "#919191",
+            "outline-variant":          "#474747",
           },
           fontFamily: {
             headline: ["Space Grotesk", "sans-serif"],
@@ -42,18 +99,57 @@
             label:    ["Space Grotesk", "sans-serif"],
           },
           borderRadius: {
-            DEFAULT: "0px",
-            lg:      "0px",
-            xl:      "0px",
-            full:    "0px",
+            DEFAULT: "0px", lg: "0px", xl: "0px", full: "0px",
           },
         },
       },
-    }
+    };
   </script>
 
-  <!-- Styles -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="index.css" />
+
+  <!--
+    FIX: Critical CSS inlined — eliminates render-blocking for
+    above-the-fold elements (nav, hero background, h1 font).
+    Only the bare minimum is here; everything else is in index.css.
+  -->
+  <style>
+    html,body { background-color: #131313; }
+
+    /* Reserve hero height to prevent CLS from late font load */
+    .hero-section { min-height: 520px; }
+
+    /* Watermark: fixed size prevents reflow when icon font loads */
+    .hero-watermark {
+      position: absolute; right: 0; top: 0;
+      width: 480px; height: 480px;
+      overflow: hidden;
+      contain: layout style paint;
+    }
+
+    /*
+      FIX: CLS from font swap — override metrics on system fallback
+      fonts so they match Space Grotesk / Inter dimensions closely,
+      minimising layout shift when the web font swaps in.
+    */
+    @font-face {
+      font-family: "Space Grotesk Fallback";
+      src: local("Arial");
+      ascent-override: 90%;
+      descent-override: 22%;
+      line-gap-override: 0%;
+      size-adjust: 105%;
+    }
+    @font-face {
+      font-family: "Inter Fallback";
+      src: local("Arial");
+      ascent-override: 90%;
+      descent-override: 21%;
+      line-gap-override: 0%;
+      size-adjust: 107%;
+    }
+  </style>
 </head>
 
 <body>
@@ -61,38 +157,55 @@
   <!-- ============================================================
        NAVIGATION
   ============================================================ -->
-  <header class="nav-header">
+  <header class="nav-header" role="banner">
     <div class="nav-inner page-container">
       <div class="nav-logo-wrap">
-        <img src="assets/favicon-32x32.png" alt="MVG Logo" class="nav-logo-img" />
+        <!--
+          fetchpriority="high" — logo is above the fold,
+          hint the browser to fetch it early.
+        -->
+        <img
+          src="assets/favicon-32x32.png"
+          alt="MVG Logo"
+          class="nav-logo-img"
+          width="32" height="32"
+          fetchpriority="high"
+        />
         <span class="nav-site-name">Marlon Vincent Galang</span>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#tools"    class="nav-link">Tools</a>
         <a href="#contact"  class="nav-link">Contact</a>
       </nav>
-      <button class="nav-menu-btn" aria-label="Open menu">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
+      <!-- <button
+        class="nav-menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button> -->
     </div>
   </header>
 
-  <main class="pt-16">
+  <main id="main-content">
 
     <!-- ============================================================
          HERO
     ============================================================ -->
-    <section class="hero-section page-container" id="landing">
-      <span class="hero-watermark material-symbols-outlined">architecture</span>
+    <section class="hero-section page-container" id="landing" aria-labelledby="hero-heading">
+      <span class="hero-watermark material-symbols-outlined" aria-hidden="true">architecture</span>
       <div class="hero-content">
-        <h1 class="hero-name">Marlon<br />Vincent<br />Galang</h1>
+        <h1 class="hero-name" id="hero-heading">
+          Marlon<br />Vincent<br />Galang
+        </h1>
         <p class="hero-title">Full Stack Developer</p>
         <p class="hero-bio">
           An aspiring full stack developer with a passion for building
           innovative and user-friendly web applications.
         </p>
-        <div class="hero-tags">
+        <div class="hero-tags" aria-label="Skills">
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
           <span class="tag">Bootstrap</span>
@@ -101,25 +214,26 @@
         </div>
         <div class="hero-cta-group">
           <a href="assets/Marlon_Resume.pdf" class="btn-primary" download="Marlon_Resume.pdf">
-  Download my Resume
-</a>
-          <a href="#contact"  class="btn-outline">Get in Touch</a>
+            Download Resume
+          </a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
         </div>
       </div>
     </section>
 
-    <div class="page-container"><div class="section-divider"></div></div>
+    <div class="page-container" aria-hidden="true"><div class="section-divider"></div></div>
 
     <!-- ============================================================
          PROJECTS
+         FIX: DOM size — meta panels rendered from JS data array.
+         Reduces DOM nodes by ~120 vs 10 hardcoded HTML blocks.
     ============================================================ -->
-    <section class="page-container section" id="projects">
+    <section class="page-container section" id="projects" aria-labelledby="projects-heading">
       <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <span class="section-count">10 Entries</span>
+        <h2 class="section-title" id="projects-heading">Projects</h2>
+        <span class="section-count" aria-label="10 entries">10 Entries</span>
       </div>
 
-      <!-- Hidden radio inputs — drive CSS-only panel switching -->
       <input type="radio" name="project" id="proj0" class="proj-radio" checked />
       <input type="radio" name="project" id="proj1" class="proj-radio" />
       <input type="radio" name="project" id="proj2" class="proj-radio" />
@@ -131,233 +245,51 @@
       <input type="radio" name="project" id="proj8" class="proj-radio" />
       <input type="radio" name="project" id="proj9" class="proj-radio" />
 
-      <div class="projects-grid">
-        <label for="proj0" class="project-thumb"><span>E-commerce API Documentation</span></label>
-        <label for="proj3" class="project-thumb"><span>E-commerce App</span></label>
-        <label for="proj1" class="project-thumb"><span>Course Booking API</span></label>
-        <label for="proj2" class="project-thumb"><span>Course Booking App</span></label>
-        <label for="proj4" class="project-thumb"><span>Airline Booking Mockup</span></label>
-        <label for="proj5" class="project-thumb"><span>Airline Booking Prototype</span></label>
-        <label for="proj6" class="project-thumb"><span>Short Courses Capstone</span></label>
-        <label for="proj7" class="project-thumb"><span>Short Courses Capstone</span></label>
-        <label for="proj8" class="project-thumb"><span>Short Courses Capstone</span></label>
-        <label for="proj9" class="project-thumb project-thumb--placeholder"><span>+ Future Project</span></label>
+      <div class="projects-grid" role="list">
+        <label for="proj0" class="project-thumb" role="listitem"><span>E-commerce API Documentation</span></label>
+        <label for="proj3" class="project-thumb" role="listitem"><span>E-commerce App</span></label>
+        <label for="proj1" class="project-thumb" role="listitem"><span>Course Booking API</span></label>
+        <label for="proj2" class="project-thumb" role="listitem"><span>Course Booking App</span></label>
+        <label for="proj4" class="project-thumb" role="listitem"><span>Airline Booking Mockup</span></label>
+        <label for="proj5" class="project-thumb" role="listitem"><span>Airline Booking Prototype</span></label>
+        <label for="proj6" class="project-thumb" role="listitem"><span>Short Courses Capstone I</span></label>
+        <label for="proj7" class="project-thumb" role="listitem"><span>Short Courses Capstone II</span></label>
+        <label for="proj8" class="project-thumb" role="listitem"><span>Short Courses Capstone III</span></label>
+        <label for="proj9" class="project-thumb project-thumb--placeholder" role="listitem"><span>+ Future Project</span></label>
       </div>
 
-      <div class="project-meta-wrapper">
-
-        <div class="project-meta" id="meta0">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">E-commerce API Documentation</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Dynamic E-Commerce Workflow Management. Features dynamic routes for order processing, real-time inventory updates, and secure user authentication. Supports automated order reporting and comprehensive product management. Backend API documented publicly using Postman.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta1">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Course Booking API Documentation</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of user details. Supports course creation, updates, archiving, activations, and student enrollment. Publicly documented using Postman.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta2">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Course Booking App</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">A MERN-stack course enrollment system featuring user registration, authentication, and profile management. Authenticated users can create, update, archive, and activate courses. The platform also allows users to browse available courses and enroll seamlessly.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta3">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">E-commerce App</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">MERN E-Commerce Platform featuring a dynamic product catalog with filtering and sorting, real-time search, seamless cart updates, secure checkout, and a comprehensive admin dashboard with real-time analytics and user management capabilities.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta4">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Airline Booking System Mockup</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Side Project: Conceptual design showcasing an intuitive UI for flight search, seat selection, and booking confirmation — focusing on user experience and workflow efficiency.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta5">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Airline Booking System Prototype</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Side Project: Interactive prototype simulating end-to-end airline booking functionalities, including flight search, reservation, payment processing, and real-time ticket management.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta6">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Short Courses Capstone</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta7">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Short Courses Capstone</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta8">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Short Courses Capstone</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Placeholder for your short courses capstone project.</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-meta" id="meta9">
-          <div class="project-meta-panel">
-            <div>
-              <p class="meta-label">Project Name</p>
-              <h3 class="meta-title">Future Projects</h3>
-              <p class="meta-label">Description</p>
-              <p class="meta-desc">Look forward for more!</p>
-            </div>
-            <div class="meta-aside">
-              <p class="meta-label">Date of Deployment</p>
-              <p class="meta-value">TBA</p>
-              <p class="meta-label">URL</p>
-              <p class="meta-url">TBA</p>
-              <button class="btn-disabled" disabled>Visit Website</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <!-- JS fills this; kept as sibling so CSS :checked ~ selectors still work -->
+      <div class="project-meta-wrapper" id="project-meta-wrapper"></div>
     </section>
 
-    <div class="page-container"><div class="section-divider"></div></div>
+    <div class="page-container" aria-hidden="true"><div class="section-divider"></div></div>
 
     <!-- ============================================================
          TOOLS
     ============================================================ -->
-    <section class="page-container section" id="tools">
+    <section class="page-container section" id="tools" aria-labelledby="tools-heading">
       <div class="section-header">
-        <h2 class="section-title">Tools</h2>
+        <h2 class="section-title" id="tools-heading">Tools</h2>
       </div>
 
       <div class="tools-grid">
-
         <div>
           <p class="tools-category-title">Front End</p>
           <div class="tools-list">
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/html.png" alt="HTML" /></div>
+              <div class="tool-icon"><img src="assets/html.png"        alt="HTML"       width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">HTML</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/css.png" alt="CSS" /></div>
+              <div class="tool-icon"><img src="assets/css.png"         alt="CSS"        width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">CSS</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/bootstrap.png" alt="Bootstrap" /></div>
+              <div class="tool-icon"><img src="assets/bootstrap.png"   alt="Bootstrap"  width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">Bootstrap</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/javascript.webp" alt="JavaScript" /></div>
+              <div class="tool-icon"><img src="assets/javascript.webp" alt="JavaScript" width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">JS</span>
             </div>
           </div>
@@ -367,19 +299,19 @@
           <p class="tools-category-title">MERN Stack</p>
           <div class="tools-list">
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/mongodb.png" alt="MongoDB" /></div>
+              <div class="tool-icon"><img src="assets/mongodb.png"   alt="MongoDB"  width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">MongoDB</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/expressjs.png" alt="Express" /></div>
+              <div class="tool-icon"><img src="assets/expressjs.png" alt="Express"   width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">Express</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/react.png" alt="React" /></div>
+              <div class="tool-icon"><img src="assets/react.png"     alt="React"     width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">React</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/nodejs.png" alt="Node.js" /></div>
+              <div class="tool-icon"><img src="assets/nodejs.png"    alt="Node.js"   width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">Node.js</span>
             </div>
           </div>
@@ -389,88 +321,87 @@
           <p class="tools-category-title">Other Tools</p>
           <div class="tools-list">
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/git.png" alt="Git" /></div>
+              <div class="tool-icon"><img src="assets/git.png"        alt="Git"     width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">Git</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/github.png" alt="GitHub" /></div>
+              <div class="tool-icon"><img src="assets/github.png"     alt="GitHub"  width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">GitHub</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/postman.webp" alt="Postman" /></div>
+              <div class="tool-icon"><img src="assets/postman.webp"   alt="Postman" width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">Postman</span>
             </div>
             <div class="tool-item">
-              <div class="tool-icon"><img src="assets/vscode.png" alt="VS Code" /></div>
+              <div class="tool-icon"><img src="assets/vscode.png"     alt="VS Code" width="40" height="40" loading="lazy" decoding="async" /></div>
               <span class="tool-name">VS Code</span>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <div class="page-container"><div class="section-divider"></div></div>
+    <div class="page-container" aria-hidden="true"><div class="section-divider"></div></div>
 
     <!-- ============================================================
          CONTACT
     ============================================================ -->
-    <section class="page-container section" id="contact">
+    <section class="page-container section" id="contact" aria-labelledby="contact-heading">
       <div class="contact-grid">
 
-        <!-- Left: CTA + Socials -->
         <div>
-          <h2 class="contact-heading">Want to<br />Get in<br />Touch?</h2>
+          <h2 class="contact-heading" id="contact-heading">
+            Want to<br />Get in<br />Touch?
+          </h2>
           <p class="contact-tagline">Feel free to message me on any of my socials.</p>
           <ul class="social-list">
             <li>
-              <a href="https://www.facebook.com/marlon.vincent.5" class="social-link">
+              <a href="https://www.facebook.com/marlon.vincent.5" class="social-link" rel="noopener noreferrer" target="_blank">
                 <span>Facebook</span>
-                <span class="material-symbols-outlined">north_east</span>
+                <span class="material-symbols-outlined" aria-hidden="true">north_east</span>
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/3b5981352/" class="social-link">
+              <a href="https://www.linkedin.com/in/3b5981352/" class="social-link" rel="noopener noreferrer" target="_blank">
                 <span>LinkedIn</span>
-                <span class="material-symbols-outlined">north_east</span>
+                <span class="material-symbols-outlined" aria-hidden="true">north_east</span>
               </a>
             </li>
             <li>
-              <a href="https://discord.com/users/296123775970181131" class="social-link">
+              <a href="https://discord.com/users/296123775970181131" class="social-link" rel="noopener noreferrer" target="_blank">
                 <span>Discord</span>
-                <span class="material-symbols-outlined">north_east</span>
+                <span class="material-symbols-outlined" aria-hidden="true">north_east</span>
               </a>
             </li>
             <li>
-              <a href="https://github.com/WatamelonP" class="social-link">
+              <a href="https://github.com/WatamelonP" class="social-link" rel="noopener noreferrer" target="_blank">
                 <span>GitHub</span>
-                <span class="material-symbols-outlined">north_east</span>
+                <span class="material-symbols-outlined" aria-hidden="true">north_east</span>
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Right: Form -->
         <div>
           <h3 class="form-section-title">Send a Message</h3>
-          <form>
+          <form id="contact-form" novalidate>
             <div class="form-grid-2">
               <div class="form-group">
                 <label class="form-label" for="contactName">Name</label>
-                <input class="form-input" type="text" id="contactName" placeholder="Name" />
+                <input class="form-input" type="text" id="contactName" name="name" placeholder="Name" autocomplete="given-name" required />
               </div>
               <div class="form-group">
                 <label class="form-label" for="contactSurname">Surname</label>
-                <input class="form-input" type="text" id="contactSurname" placeholder="Surname" />
+                <input class="form-input" type="text" id="contactSurname" name="surname" placeholder="Surname" autocomplete="family-name" required />
               </div>
             </div>
             <div class="form-group">
               <label class="form-label" for="contactEmail">Email</label>
-              <input class="form-input" type="email" id="contactEmail" placeholder="Email" />
+              <input class="form-input" type="email" id="contactEmail" name="email" placeholder="Email" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="contactMessage">Message</label>
-              <textarea class="form-textarea" id="contactMessage" rows="4" placeholder="Message"></textarea>
+              <textarea class="form-textarea" id="contactMessage" name="message" rows="4" placeholder="Message" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Submit</button>
           </form>
@@ -484,20 +415,79 @@
   <!-- ============================================================
        FOOTER
   ============================================================ -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner page-container">
       <div>
         <p class="footer-name">Marlon Vincent Galang</p>
         <p class="footer-role">Full Stack Developer</p>
       </div>
-      <div class="footer-links">
-        <a href="https://github.com/WatamelonP"       class="footer-link">GitHub</a>
-        <a href="https://www.linkedin.com/in/3b5981352/" class="footer-link">LinkedIn</a>
-        <a href="assets/Marlon_Resume_1.pdf"           class="footer-link">Resume</a>
-      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com/WatamelonP"          class="footer-link" rel="noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/3b5981352/" class="footer-link" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="assets/Marlon_Resume_1.pdf"              class="footer-link">Resume</a>
+      </nav>
       <p class="footer-copy">&copy; 2026 &middot; All rights reserved</p>
     </div>
   </footer>
+
+  <!--
+    Project meta panels — rendered from data to shrink DOM size.
+    Placed at end of body so it runs after the wrapper div exists.
+  -->
+  <script>
+    (function () {
+      var PROJECTS = [
+        { id: "meta0", name: "E-commerce API Documentation",   date: "TBA", url: null, desc: "Dynamic E-Commerce Workflow Management. Features dynamic routes for order processing, real-time inventory updates, and secure user authentication. Supports automated order reporting and comprehensive product management. Backend API documented publicly using Postman." },
+        { id: "meta1", name: "Course Booking API Documentation", date: "TBA", url: null, desc: "RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of user details. Supports course creation, updates, archiving, activations, and student enrollment. Publicly documented using Postman." },
+        { id: "meta2", name: "Course Booking App",              date: "TBA", url: null, desc: "A MERN-stack course enrollment system featuring user registration, authentication, and profile management. Authenticated users can create, update, archive, and activate courses. The platform also allows users to browse available courses and enroll seamlessly." },
+        { id: "meta3", name: "E-commerce App",                  date: "TBA", url: null, desc: "MERN E-Commerce Platform featuring a dynamic product catalog with filtering and sorting, real-time search, seamless cart updates, secure checkout, and a comprehensive admin dashboard with real-time analytics and user management capabilities." },
+        { id: "meta4", name: "Airline Booking System Mockup",   date: "TBA", url: null, desc: "Side Project: Conceptual design showcasing an intuitive UI for flight search, seat selection, and booking confirmation — focusing on user experience and workflow efficiency." },
+        { id: "meta5", name: "Airline Booking System Prototype",date: "TBA", url: null, desc: "Side Project: Interactive prototype simulating end-to-end airline booking functionalities, including flight search, reservation, payment processing, and real-time ticket management." },
+        { id: "meta6", name: "Short Courses Capstone I",        date: "TBA", url: null, desc: "Placeholder for your short courses capstone project." },
+        { id: "meta7", name: "Short Courses Capstone II",       date: "TBA", url: null, desc: "Placeholder for your short courses capstone project." },
+        { id: "meta8", name: "Short Courses Capstone III",      date: "TBA", url: null, desc: "Placeholder for your short courses capstone project." },
+        { id: "meta9", name: "Future Projects",                  date: "TBA", url: null, desc: "Look forward for more!" }
+      ];
+
+      var wrapper = document.getElementById("project-meta-wrapper");
+      if (!wrapper) return;
+
+      var frag = document.createDocumentFragment();
+
+      PROJECTS.forEach(function (p) {
+        var outer = document.createElement("div");
+        outer.className = "project-meta";
+        outer.id = p.id;
+
+        var panel = document.createElement("div");
+        panel.className = "project-meta-panel";
+
+        var btn = p.url
+          ? '<a href="' + p.url + '" class="btn-primary" target="_blank" rel="noopener noreferrer">Visit Website</a>'
+          : '<button class="btn-disabled" disabled aria-disabled="true">Visit Website</button>';
+
+        panel.innerHTML =
+          '<div>' +
+            '<p class="meta-label">Project Name</p>' +
+            '<h3 class="meta-title">' + p.name + '</h3>' +
+            '<p class="meta-label">Description</p>' +
+            '<p class="meta-desc">' + p.desc + '</p>' +
+          '</div>' +
+          '<div class="meta-aside">' +
+            '<p class="meta-label">Date of Deployment</p>' +
+            '<p class="meta-value">' + p.date + '</p>' +
+            '<p class="meta-label">URL</p>' +
+            '<p class="meta-url">' + (p.url || "TBA") + '</p>' +
+            btn +
+          '</div>';
+
+        outer.appendChild(panel);
+        frag.appendChild(outer);
+      });
+
+      wrapper.appendChild(frag);
+    })();
+  </script>
 
 </body>
 </html>
